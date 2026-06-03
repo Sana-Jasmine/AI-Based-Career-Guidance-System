@@ -1,0 +1,121 @@
+programming,communication,creativity,analytical,leadership,interest_ai,interest_business,interest_design,career
+10,5,4,10,4,1,0,0,AI Engineer
+10,4,4,8,4,1,0,0,AI Engineer
+10,4,4,8,5,1,0,0,AI Engineer
+10,4,5,8,4,1,0,0,AI Engineer
+10,5,3,9,6,1,0,0,AI Engineer
+8,4,5,10,6,1,0,0,AI Engineer
+8,5,4,10,6,1,0,0,AI Engineer
+8,4,4,8,4,1,0,0,AI Engineer
+9,4,5,9,4,1,0,0,AI Engineer
+10,5,5,10,4,1,0,0,AI Engineer
+8,6,4,10,6,1,0,0,AI Engineer
+8,6,5,9,4,1,0,0,AI Engineer
+9,4,3,8,6,1,0,0,AI Engineer
+8,5,4,9,4,1,0,0,AI Engineer
+10,6,3,8,6,1,0,0,AI Engineer
+7,7,4,8,6,1,0,0,Data Scientist
+7,6,4,8,6,1,0,0,Data Scientist
+9,5,6,7,5,1,0,0,Data Scientist
+9,7,5,9,6,1,0,0,Data Scientist
+9,6,6,9,7,1,0,0,Data Scientist
+8,6,4,8,7,1,0,0,Data Scientist
+8,6,4,8,6,1,0,0,Data Scientist
+7,6,4,9,5,1,0,0,Data Scientist
+9,6,6,8,5,1,0,0,Data Scientist
+7,5,5,8,5,1,0,0,Data Scientist
+9,6,5,7,5,1,0,0,Data Scientist
+8,7,6,9,5,1,0,0,Data Scientist
+8,6,6,7,7,1,0,0,Data Scientist
+7,7,6,7,7,1,0,0,Data Scientist
+9,7,4,8,5,1,0,0,Data Scientist
+6,6,4,8,4,1,0,0,Software Developer
+8,5,4,6,6,1,0,0,Software Developer
+6,4,5,7,4,1,0,0,Software Developer
+8,5,3,7,4,1,0,0,Software Developer
+7,5,5,7,6,1,0,0,Software Developer
+8,5,4,7,4,1,0,0,Software Developer
+6,5,3,8,6,1,0,0,Software Developer
+8,5,3,6,5,1,0,0,Software Developer
+7,6,4,6,4,1,0,0,Software Developer
+6,4,4,6,6,1,0,0,Software Developer
+8,6,4,8,6,1,0,0,Software Developer
+8,6,4,7,5,1,0,0,Software Developer
+9,6,5,6,5,1,0,0,Software Developer
+7,4,3,7,4,1,0,0,Software Developer
+8,4,5,6,4,1,0,0,Software Developer
+4,9,5,8,7,0,1,0,Business Analyst
+4,9,6,6,6,0,1,0,Business Analyst
+7,9,6,6,6,0,1,0,Business Analyst
+7,9,6,6,8,0,1,0,Business Analyst
+5,7,6,8,6,0,1,0,Business Analyst
+4,7,7,7,8,0,1,0,Business Analyst
+7,9,6,6,8,0,1,0,Business Analyst
+7,9,7,8,7,0,1,0,Business Analyst
+4,7,5,7,6,0,1,0,Business Analyst
+7,9,6,6,7,0,1,0,Business Analyst
+5,7,7,7,8,0,1,0,Business Analyst
+4,9,7,6,8,0,1,0,Business Analyst
+7,9,6,8,6,0,1,0,Business Analyst
+5,7,6,7,7,0,1,0,Business Analyst
+7,9,6,6,7,0,1,0,Business Analyst
+3,10,7,4,9,0,1,0,HR Manager
+4,9,6,6,10,0,1,0,HR Manager
+2,8,7,6,10,0,1,0,HR Manager
+4,9,8,6,9,0,1,0,HR Manager
+2,8,7,6,8,0,1,0,HR Manager
+4,10,8,6,8,0,1,0,HR Manager
+2,9,6,4,9,0,1,0,HR Manager
+2,8,6,6,8,0,1,0,HR Manager
+3,10,8,4,8,0,1,0,HR Manager
+2,10,8,6,10,0,1,0,HR Manager
+3,8,7,5,9,0,1,0,HR Manager
+3,9,8,6,8,0,1,0,HR Manager
+5,10,7,5,8,0,1,0,HR Manager
+5,9,6,4,8,0,1,0,HR Manager
+4,9,8,5,10,0,1,0,HR Manager
+4,8,10,6,6,0,1,1,Marketing
+5,8,9,5,8,0,1,1,Marketing
+4,7,10,5,8,0,1,1,Marketing
+5,8,10,4,7,0,1,1,Marketing
+4,8,9,5,8,0,1,1,Marketing
+5,9,7,4,8,0,1,1,Marketing
+3,7,9,4,8,0,1,1,Marketing
+3,9,10,6,8,0,1,1,Marketing
+3,9,9,6,8,0,1,1,Marketing
+6,9,8,6,8,0,1,1,Marketing
+4,9,7,5,6,0,1,1,Marketing
+4,7,7,6,6,0,1,1,Marketing
+6,8,7,4,7,0,1,1,Marketing
+4,7,7,4,8,0,1,1,Marketing
+3,7,8,4,6,0,1,1,Marketing
+2,8,8,6,5,0,1,1,UI/UX Designer
+4,6,9,6,7,0,1,1,UI/UX Designer
+3,8,8,4,6,0,1,1,UI/UX Designer
+5,7,10,4,5,0,1,1,UI/UX Designer
+4,7,10,6,6,0,1,1,UI/UX Designer
+4,8,9,3,7,0,1,1,UI/UX Designer
+4,7,8,3,5,0,1,1,UI/UX Designer
+3,6,8,4,6,0,1,1,UI/UX Designer
+5,8,9,6,6,0,1,1,UI/UX Designer
+2,6,9,4,6,0,1,1,UI/UX Designer
+2,6,10,3,7,0,1,1,UI/UX Designer
+5,8,8,6,7,0,1,1,UI/UX Designer
+2,7,10,6,7,0,1,1,UI/UX Designer
+3,8,10,5,5,0,1,1,UI/UX Designer
+5,6,9,4,6,0,1,1,UI/UX Designer
+8,6,4,8,4,1,0,0,Cyber Security Analyst
+9,4,3,9,5,1,0,0,Cyber Security Analyst
+9,6,3,10,4,1,0,0,Cyber Security Analyst
+8,4,3,9,4,1,0,0,Cyber Security Analyst
+8,6,4,9,4,1,0,0,Cyber Security Analyst
+9,5,5,10,4,1,0,0,Cyber Security Analyst
+7,5,3,10,5,1,0,0,Cyber Security Analyst
+7,4,3,9,4,1,0,0,Cyber Security Analyst
+9,4,4,9,4,1,0,0,Cyber Security Analyst
+8,6,3,9,6,1,0,0,Cyber Security Analyst
+8,4,4,8,6,1,0,0,Cyber Security Analyst
+7,6,5,9,5,1,0,0,Cyber Security Analyst
+9,6,5,10,4,1,0,0,Cyber Security Analyst
+8,4,5,9,6,1,0,0,Cyber Security Analyst
+9,6,5,9,6,1,0,0,Cyber Security Analyst

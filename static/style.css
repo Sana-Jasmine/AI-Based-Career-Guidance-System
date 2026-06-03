@@ -1,0 +1,365 @@
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:     #0d0d0d;
+  --paper:   #f5f0e8;
+  --cream:   #ede8dc;
+  --gold:    #c9a84c;
+  --gold-lt: #e8d49a;
+  --muted:   #6b6459;
+  --card-bg: #faf7f2;
+  --border:  #d4cec3;
+  --shadow:  rgba(13,13,13,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.5;
+}
+
+/* ── Header ── */
+header {
+  position: relative;
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+  overflow: hidden;
+}
+header::after {
+  content: '';
+  position: absolute; bottom: -1px; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 3px; background: var(--gold);
+}
+
+.logo-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--ink); color: var(--gold);
+  font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.35rem 0.9rem; border-radius: 2px; margin-bottom: 1.4rem;
+}
+.logo-badge svg { width: 14px; height: 14px; stroke: var(--gold); }
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 900; line-height: 1.08;
+  letter-spacing: -0.02em; color: var(--ink);
+}
+header h1 em { font-style: italic; color: var(--gold); }
+
+header p.tagline {
+  margin-top: 0.9rem; color: var(--muted);
+  font-size: 1rem; font-weight: 300; letter-spacing: 0.02em;
+  max-width: 480px; margin-left: auto; margin-right: auto;
+}
+
+.ornament {
+  display: flex; align-items: center; gap: 0.8rem;
+  justify-content: center; margin: 2rem auto 0;
+  color: var(--gold); font-size: 1.2rem;
+}
+.ornament-line { flex: 0 0 48px; height: 1px; background: var(--gold-lt); }
+
+/* ── Main ── */
+main {
+  position: relative; z-index: 1;
+  max-width: 900px; margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.section-label {
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1.6rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── Form Card ── */
+.form-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px; padding: 2.5rem;
+  box-shadow: 0 4px 24px var(--shadow);
+  animation: fadeUp 0.6s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.4rem; margin-bottom: 2rem;
+}
+
+.skill-field { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.skill-field label {
+  font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+}
+.hint {
+  font-weight: 300; letter-spacing: 0;
+  text-transform: none; color: var(--border); font-size: 0.72rem;
+}
+
+.skill-field input[type="number"] {
+  width: 100%; padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--border); border-radius: 3px;
+  background: var(--paper); color: var(--ink);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  outline: none; transition: border-color 0.2s;
+}
+.skill-field input[type="number"]:focus { border-color: var(--gold); }
+
+/* ── Interests ── */
+.interests-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem; }
+
+.checkbox-card {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.65rem 1.1rem;
+  border: 1.5px solid var(--border); border-radius: 3px;
+  background: var(--paper); color: var(--muted);
+  font-size: 0.85rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s; user-select: none;
+}
+.checkbox-card:hover { border-color: var(--gold); color: var(--ink); }
+.checkbox-card input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.checkbox-box {
+  width: 16px; height: 16px; flex-shrink: 0;
+  border: 1.5px solid var(--border); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; color: transparent; transition: all 0.2s;
+}
+.checkbox-card:has(input:checked) {
+  background: var(--ink); border-color: var(--ink); color: var(--gold);
+}
+.checkbox-card:has(input:checked) .checkbox-box {
+  background: var(--gold); border-color: var(--gold); color: var(--ink);
+}
+
+/* ── Submit Button ── */
+.submit-row { display: flex; justify-content: center; margin-top: 0.5rem; }
+
+.btn-predict {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  padding: 0.95rem 2.8rem;
+  background: var(--ink); color: var(--gold);
+  border: none; border-radius: 2px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700; letter-spacing: 0.06em;
+  cursor: pointer; transition: color 0.3s;
+  position: relative; overflow: hidden;
+}
+.btn-predict::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gold); transform: scaleX(0);
+  transform-origin: left; transition: transform 0.3s ease; z-index: 0;
+}
+.btn-predict:hover::after { transform: scaleX(1); }
+.btn-predict:hover { color: var(--ink); }
+.btn-predict svg,
+.btn-predict span { position: relative; z-index: 1; }
+.btn-predict svg { width: 18px; height: 18px; }
+
+/* ── Result Card ── */
+.result-section { margin-top: 3rem; animation: fadeUp 0.6s ease both; }
+
+.result-card {
+  background: var(--ink); color: var(--paper);
+  border-radius: 4px; padding: 2.5rem;
+  position: relative; overflow: hidden;
+}
+.result-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 4px; height: 100%; background: var(--gold);
+}
+.result-label {
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-lt); margin-bottom: 0.6rem;
+}
+.result-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900; color: var(--gold); line-height: 1.1; margin-bottom: 1rem;
+}
+
+/* FIX: confidence fill uses width directly (set inline via style="width: x%") */
+.confidence-bar-wrap { margin-bottom: 1.4rem; }
+.confidence-meta {
+  display: flex; justify-content: space-between;
+  font-size: 0.78rem; color: var(--cream); margin-bottom: 0.5rem;
+}
+.confidence-bar {
+  height: 5px; background: rgba(255,255,255,0.12);
+  border-radius: 3px; overflow: hidden;
+}
+.confidence-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 3px;
+  transition: width 0.8s ease;  /* smooth animation when result appears */
+}
+
+.result-info {
+  font-size: 0.93rem; color: var(--cream); line-height: 1.65;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.2rem; margin-top: 0.5rem;
+}
+
+/* ── How It Works ── */
+.how-strip { margin-top: 3.5rem; border-top: 1px solid var(--border); padding-top: 2.5rem; }
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem; margin-top: 1.5rem;
+}
+.how-item { display: flex; flex-direction: column; gap: 0.5rem; }
+.how-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 900;
+  color: var(--gold-lt); line-height: 1;
+}
+.how-item h4 {
+  font-size: 0.82rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink);
+}
+.how-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+/* ── Chat Section ── FIX: now uses design system variables, not hardcoded blues */
+.chat-section { margin-top: 3.5rem; border-top: 1px solid var(--border); padding-top: 2.5rem; }
+
+.chat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px var(--shadow);
+}
+
+.chat-area {
+  height: 280px;
+  overflow-y: auto;
+  padding: 1rem;
+  border-radius: 3px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Scrollbar styling */
+.chat-area::-webkit-scrollbar { width: 4px; }
+.chat-area::-webkit-scrollbar-track { background: transparent; }
+.chat-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Message Bubbles ── */
+.chat-msg {
+  max-width: 78%;
+  padding: 0.65rem 1rem;
+  border-radius: 3px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+/* USER — matches btn-predict style */
+.user-msg {
+  background: var(--ink);
+  color: var(--gold);
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+/* BOT — matches form card style */
+.bot-msg {
+  background: var(--cream);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+/* Typing indicator animation */
+.typing-msg {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.82rem;
+}
+
+/* ── Chat Input ── */
+.chat-input {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.chat-input input:focus { border-color: var(--gold); }
+
+.chat-input button {
+  background: var(--ink);
+  color: var(--gold);
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+}
+.chat-input button:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center; padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em;
+}
+footer strong { color: var(--ink); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .form-card  { padding: 1.5rem; }
+  .chat-card  { padding: 1.2rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .chat-msg   { max-width: 92%; }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Career Guidance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────── -->
+<header>
+  <div class="logo-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+    CareerCompass
+  </div>
+  <h1>Discover Your Ideal Career Path</h1>
+  <p class="tagline">Rate your skills, indicate your interests, and let our AI model guide you toward the right profession.</p>
+  <div class="ornament">
+    <span class="ornament-line"></span>
+    ✦
+    <span class="ornament-line"></span>
+  </div>
+</header>
+
+<!-- ── MAIN ───────────────────────────────────────────── -->
+<main>
+
+  <!-- Skills & Prediction Form -->
+  <form action="/predict" method="post">
+    <p class="section-label">Your Skills &amp; Strengths</p>
+    <div class="form-card">
+      <div class="skills-grid">
+
+        <div class="skill-field">
+          <label for="programming">💻 Programming <span class="hint">(0 – 10)</span></label>
+          <input type="number" name="programming" id="programming" min="0" max="10" value="5" required/>
+        </div>
+
+        <div class="skill-field">
+          <label for="communication">🗣️ Communication <span class="hint">(0 – 10)</span></label>
+          <input type="number" name="communication" id="communication" min="0" max="10" value="5" required/>
+        </div>
+
+        <div class="skill-field">
+          <label for="creativity">🎨 Creativity <span class="hint">(0 – 10)</span></label>
+          <input type="number" name="creativity" id="creativity" min="0" max="10" value="5" required/>
+        </div>
+
+        <div class="skill-field">
+          <label for="analytical">📊 Analytical <span class="hint">(0 – 10)</span></label>
+          <input type="number" name="analytical" id="analytical" min="0" max="10" value="5" required/>
+        </div>
+
+        <div class="skill-field">
+          <label for="leadership">🧭 Leadership <span class="hint">(0 – 10)</span></label>
+          <input type="number" name="leadership" id="leadership" min="0" max="10" value="5" required/>
+        </div>
+
+      </div>
+
+      <p class="section-label">Areas of Interest</p>
+      <div class="interests-row">
+
+        <label class="checkbox-card">
+          <input type="checkbox" name="interest_ai" value="1"/>
+          <span class="checkbox-box">✓</span>
+          🤖 Artificial Intelligence
+        </label>
+
+        <label class="checkbox-card">
+          <input type="checkbox" name="interest_business" value="1"/>
+          <span class="checkbox-box">✓</span>
+          📈 Business &amp; Strategy
+        </label>
+
+        <label class="checkbox-card">
+          <input type="checkbox" name="interest_design" value="1"/>
+          <span class="checkbox-box">✓</span>
+          🖌️ Design &amp; UX
+        </label>
+
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn-predict">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <span>Analyse My Profile</span>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Prediction Result -->
+  {% if prediction %}
+  <section class="result-section">
+    <p class="section-label">Your Guidance Result</p>
+    <div class="result-card">
+      <p class="result-label">AI Recommendation</p>
+      <h2>{{ prediction }}</h2>
+         
+
+      {% if confidence != "N/A" %}
+<div class="confidence-bar-wrap">
+  <div class="confidence-meta">
+    <span>Confidence Score</span>
+    <span>{{ confidence }}%</span>
+  </div>
+
+  <div class="confidence-bar">
+   <div class="confidence-fill" style="width: confidence " ></div>
+  </div>
+</div>
+{% endif %}
+       
+
+      <p class="result-info">{{ info }}</p>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- How It Works -->
+  <div class="how-strip">
+    <p class="section-label">How It Works</p>
+    <div class="how-grid">
+      <div class="how-item">
+        <span class="how-num">01</span>
+        <h4>Self-Assess</h4>
+        <p>Rate your core competencies on a 0–10 scale honestly.</p>
+      </div>
+      <div class="how-item">
+        <span class="how-num">02</span>
+        <h4>Signal Interests</h4>
+        <p>Tell the model which domains excite you the most.</p>
+      </div>
+      <div class="how-item">
+        <span class="how-num">03</span>
+        <h4>AI Analysis</h4>
+        <p>A trained ML classifier maps your profile to a career.</p>
+      </div>
+      <div class="how-item">
+        <span class="how-num">04</span>
+        <h4>Get Guided</h4>
+        <p>Receive a recommendation with confidence and context.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CHAT SECTION ──────────────────────────────────── -->
+  <section class="chat-section">
+    <p class="section-label">Career Assistant</p>
+    <div class="chat-card">
+      <div id="chatArea" class="chat-area"></div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="msg"
+          placeholder="Ask about careers, skills, roadmap..."
+          onkeydown="if(event.key==='Enter') sendMsg()"
+        />
+        <button onclick="sendMsg()">Send</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <strong>CareerCompass</strong> &nbsp;·&nbsp; Powered by a trained ML model &nbsp;·&nbsp; For guidance purposes only
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
